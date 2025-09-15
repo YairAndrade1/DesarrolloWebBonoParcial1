@@ -1,4 +1,4 @@
-
+'use client'
 export default function Footer() {
     const language = "English";
     const themeSelected = "Light";

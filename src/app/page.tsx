@@ -1,29 +1,33 @@
+'use client'
+import "./i18n";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center">
       <div className="flex flex-col items-center justify-center py-6">
         <h1 className="text-3xl font-bold text-center">
-          Welcome to my bonus
+          {t("body.title")}
         </h1>
-        <p className="text-lg text-center py-4">This bonus shows a form component that uses different React Hooks; State and Context Hooks that alterate header and page visualizacion.</p>
+        <p className="text-lg text-center py-4">{t("body.description")}</p>
       </div>
       <div>
         <form>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-              User Name
+              {t("form.username")}
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
               type="text"
-              placeholder="Enter your user name"
+              placeholder={t("form.username")}
             />
           </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
-              Phone Number
+              {t("form.phone")}
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -34,7 +38,7 @@ export default function Home() {
           </div>
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
-              Address
+              {t("form.address")}
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -43,7 +47,7 @@ export default function Home() {
               placeholder="Enter your address"
             />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <button
               className="
                 bg-black
@@ -57,7 +61,7 @@ export default function Home() {
                 rounded-2xl"
               type="button"
             >
-              Submit
+              {t("form.submit")}
             </button>
           </div>
         </form>

@@ -1,17 +1,30 @@
 'use client'
 import { useTranslation } from "react-i18next";
 import useUser from "../userContext";
+import { useState } from "react";
+
 export default function Form() {
     const { t } = useTranslation();
     const { userData, setUserData } = useUser();
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const [draft, setDraft] = useState({
+        phone: userData.phone,
+        address: userData.address,
+        year: userData.year,
+    })
+
+    const onChangeDraft = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
-        setUserData({ [id]: value } as any);
+        setDraft({ ...draft, [id]: value });
+    };
+
+    const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserData({ name: e.target.value });
     };
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setUserData(draft);
     };
 
     return (
@@ -26,7 +39,7 @@ export default function Form() {
                     id="name"
                     type="text"
                     placeholder={t("form.usernamePlaceholder")}
-                    onChange={onChange}
+                    onChange={onChangeName}
                 />
             </div>
             <div className="mb-4">
@@ -38,7 +51,7 @@ export default function Form() {
                     id="phone"
                     type="tel"
                     placeholder={t("form.phonePlaceholder")}
-                    onChange={onChange}
+                    onChange={onChangeDraft}
                 />
             </div>
             <div className="mb-6">
@@ -50,7 +63,7 @@ export default function Form() {
                     id="address"
                     type="text"
                     placeholder={t("form.addressPlaceholder")}
-                    onChange={onChange}
+                    onChange={onChangeDraft}
                 />
             </div>
             <div className="mb-6">
@@ -62,13 +75,14 @@ export default function Form() {
                     id="year"
                     type="date"
                     placeholder={t("form.yearPlaceholder")}
-                    onChange={onChange}
+                    onChange={onChangeDraft}
                 />
             </div>
             <div className="flex items-center justify-center">
                 <button
                     className="py-2 px-4 rounded-2xl border border-black bg-white text-black hover:bg-black hover:text-white transition-colors duration-200 "
                     type="button"
+                    onClick={onSubmit}
                 >
                     {t("form.submit")}
                 </button>

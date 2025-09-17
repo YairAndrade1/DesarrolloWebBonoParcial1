@@ -8,7 +8,22 @@ const resources = {
         "form.username": "User Name",
         "form.phone": "Phone Number",
         "form.address": "Address",
-        "form.submit": "Submit"
+        "form.submit": "Submit",
+        "form.usernamePlaceholder": "Enter your user name",
+        "form.phonePlaceholder": "Enter your phone number",
+        "form.addressPlaceholder": "Enter your address",
+        "form.year": "Birthday",
+        "form.yearPlaceholder": "Enter your birthday",
+        "form.title": "Enter your information",
+        "navbar.greeting": "Helloooo {{name}}!",
+        "footer.language": "English",
+        "footer.theme": "Light",
+        "footer.langToggle": "Language",
+        "language.english": "English",  
+        "language.spanish": "Spanish",
+        "footer.birthday": "My birthday is {{year}}",
+        "footer.phone": "My phone number is {{phone}}",
+        "footer.address": "My address is {{address}}"
     } },
     es: { translation: {
         "body.title": "Bienvenido a mi Bonus",
@@ -16,7 +31,22 @@ const resources = {
         "form.username": "Nombre de Usuario",
         "form.phone": "Número de Teléfono",
         "form.address": "Dirección",
-        "form.submit": "Enviar"
+        "form.submit": "Enviar",
+        "form.usernamePlaceholder": "Ingrese su nombre de usuario",
+        "form.phonePlaceholder": "Ingrese su número de teléfono",
+        "form.addressPlaceholder": "Ingrese su dirección",
+        "form.year": "Cumpleaños",
+        "form.yearPlaceholder": "Ingrese su cumpleaños",
+        "form.title": "Ingrese su información",
+        "navbar.greeting": "Holaaaa {{name}}!",
+        "footer.language": "Español",
+        "footer.theme": "Claro",
+        "footer.langToggle": "Idioma",
+        "language.english": "Inglés",
+        "language.spanish": "Español",
+        "footer.birthday": "Mi fecha de nacimiento es {{year}}",
+        "footer.phone": "Mi número de teléfono es {{phone}}",
+        "footer.address": "Mi dirección es {{address}}"
     }}
 }
 
@@ -30,7 +60,7 @@ if(!i18n.isInitialized){
         supportedLngs: ["en", "es"],
         nonExplicitSupportedLngs: true,
         detection: {
-            order: ["querystring", "cookie","localStorage","navigator"],
+            order: ["querystring", "cookie"],
             caches: ["cookie"]
         },
         interpolation: {
